@@ -17,15 +17,11 @@ import org.eclipse.jetty.util.Callback;
 import org.eclipse.jetty.util.FutureCallback;
 import org.eclipse.jetty.websocket.api.RemoteEndpoint;
 import org.eclipse.jetty.websocket.api.Session;
-import org.eclipse.jetty.websocket.core.annotations.WebSocket;
-import org.eclipse.jetty.websocket.core.api.WebSocketConnection;
-import org.eclipse.jetty.websocket.core.api.WebSocketException;
-import org.eclipse.jetty.websocket.core.api.WebSocketListener;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-@WebSocket
+
 public class MyEchoSocket implements
 		org.eclipse.jetty.websocket.api.WebSocketListener {
 

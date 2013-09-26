@@ -26,7 +26,7 @@ public class HomeController {
 		logger.info("Welcome home!");
 		model.addAttribute("controllerMessage",
 				"This is the message from the 11controller!");
-		return "home";
+		return "index";
 	}
 	
 
