@@ -7,8 +7,6 @@ import java.util.List;
 import org.springframework.web.socket.TextMessage;
 
 import com.google.gson.Gson;
-import com.guxuede.myca.socket.MyEchoSocket;
-import com.guxuede.myca.socket.SMessage;
 
 public class Forum {
 

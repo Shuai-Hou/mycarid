@@ -42,6 +42,7 @@ import com.guxuede.myca.entity.User;
 import com.guxuede.myca.service.ChatService;
 import com.guxuede.myca.service.RoomService;
 import com.guxuede.myca.service.UserService;
+import com.guxuede.myca.util.EscapeUnescape;
 
 @Configuration
 @EnableWebSocket
@@ -113,14 +114,14 @@ public class WebSocketController extends WebMvcConfigurerAdapter implements WebS
 				}
 				System.out.println(param);
 				System.out.println(param.keySet());
-				String name=param.get("name");
-				String room=param.get("room");
-				String avatar=param.get("avatar");
-				String color=param.get("color");
+				String name=EscapeUnescape.unescape(param.get("name"));
+				String room=EscapeUnescape.unescape(param.get("room"));
+				String avatar=EscapeUnescape.unescape(param.get("avatar"));
+				String color=EscapeUnescape.unescape(param.get("color"));
 				String JSESSIONID=param.get("JSESSIONID");
 				System.out.println(name+","+room+","+avatar+","+JSESSIONID);
 				Assert.hasText(name,"'name' must not empty");
-				if(avatar==null)avatar="../mycarid/resources/img/avatar.jpg";
+				if(avatar==null)avatar="../resources/img/avatar.jpg";
 				if(color==null)color="green";
 				attributes.put("name", name);
 				attributes.put("avatar", avatar);
