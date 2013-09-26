@@ -3,21 +3,21 @@
 <html>  
 <head>  
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
-	<link rel="stylesheet" href="stylesheets/general_foundicons.css">
-	<script charset="utf-8" src="../mycarid/resources/script/jquery-1.8.3.js"></script>
-	<script charset="utf-8" src="../mycarid/resources/script/jquery-ui-latest.js"></script>
+	<script charset="utf-8" src="../resources/script/jquery-1.8.3.js"></script>
+	<script charset="utf-8" src="../resources/script/jquery-ui-latest.js"></script>
 	
-	<link rel="stylesheet" href="../mycarid/resources/css/layout-default-latest.css" />
-	<script charset="utf-8" src="../mycarid/resources/script/jquery.layout-latest.js"></script>
+	<link rel="stylesheet" href="../resources/css/layout-default-latest.css" />
+	<script charset="utf-8" src="../resources/script/jquery.layout-latest.js"></script>
 	
-	<link rel="stylesheet" href="../mycarid/resources/kindeditor-4.1.7/themes/default/default.css" />
-	<link rel="stylesheet" href="../mycarid/resources/kindeditor-4.1.7/plugins/code/prettify.css" />
-	<script charset="utf-8" src="../mycarid/resources/kindeditor-4.1.7/kindeditor.js"></script>
-	<script charset="utf-8" src="../mycarid/resources/kindeditor-4.1.7/lang/zh_CN.js"></script>
-	<script charset="utf-8" src="../mycarid/resources/kindeditor-4.1.7/plugins/code/prettify.js"></script>
-	<script charset="utf-8" src="../mycarid/resources/script/template.js"></script>
-	<script charset="utf-8" src="../mycarid/resources/script/StackBlur.js"></script>
-
+	<link rel="stylesheet" href="../resources/kindeditor-4.1.7/themes/default/default.css" />
+	<link rel="stylesheet" href="../resources/kindeditor-4.1.7/plugins/code/prettify.css" />
+	<script charset="utf-8" src="../resources/kindeditor-4.1.7/kindeditor.js"></script>
+	<script charset="utf-8" src="../resources/kindeditor-4.1.7/lang/zh_CN.js"></script>
+	<script charset="utf-8" src="../resources/kindeditor-4.1.7/plugins/code/prettify.js"></script>
+	<script charset="utf-8" src="../resources/script/template.js"></script>
+	<script charset="utf-8" src="../resources/script/StackBlur.js"></script>
+	<script src="../resources/script/system.js"></script>
+	
 <style>
 	body, div, address, blockquote, iframe, ul, ol, dl, dt, 
 	dd, li, dl, h1, h2, h3, h4, pre, table, caption, th, td, form, 
@@ -107,7 +107,7 @@
 <script id="test" type="text/html">
 	<li>
 		<div class="comment-stack">
-			<div class="avatar"><img src="<!--[==avatar]-->" alt="<!--[==user.name]-->" title="<!--[==user.name]-->"></div>
+			<div class="avatar"><img src="<!--[==user.avatar]-->" alt="<!--[==user.name]-->" title="<!--[==user.name]-->"></div>
 			<div class="comment">
 				<div class="comment-head"><a href="#"><!--[==user.name]--></a> <span><!--[==time]--></span></div>
 				<div class="comment-body"><p><!--[==msg]--></p></div>
@@ -159,7 +159,7 @@
 	});
 	  
 	function initLink(){
-		var url="ws://localhost:8080/mycarid/socket.do";
+		var url='ws://' + window.location.host+"/socket.do";
 	    if ('WebSocket' in window){
 	        ws = new WebSocket(url);  
 	    }else if ('MozWebSocket' in window){
@@ -234,22 +234,6 @@
             }
 		});
 	}
-	function getCookie(name){
-		 var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
-		 if(arr != null) return unescape(arr[2]); return null;
-	};	
-	function setCoolie(name,value){
-		var Days = 30;
-		var exp  = new Date();
-		exp.setTime(exp.getTime() + Days*24*60*60*1000);
-		document.cookie = name + "="+ escape(value) +";expires="+ exp.toGMTString();
-	};
-	function delCookie(name){
-	  var exp = new Date();
-	  exp.setTime(exp.getTime() - 1);
-	  var cval=getCookie(name);
-	  if(cval!=null) document.cookie=name +"="+cval+";expires="+exp.toGMTString();
-	};
 	function loginout(){
 		ws.close();
 		delCookie('name');
@@ -257,7 +241,7 @@
 	}
 	KindEditor.ready(function(K) {
 		var editor1 = K.create('textarea[name="content1"]', {
-			cssPath : '../mycarid/resources/kindeditor-4.1.7/plugins/code/prettify.css',
+			cssPath : '../resources/kindeditor-4.1.7/plugins/code/prettify.css',
 			uploadJson : '../jsp/upload_json.jsp',
 			fileManagerJson : '../jsp/file_manager_json.jsp',
 			allowFileManager : true,
@@ -282,7 +266,7 @@
 
 </head>  
 <body>  
-<img id="bgimg" src="../mycarid/resources/img/dating.jpg" style="width: 100%; height: 100%;display: none;" onLoad="stackBlurImage('bgimg', 'canvas', 20, 0.1);"></img>
+<img id="bgimg" src="../resources/img/dating.jpg" style="width: 100%; height: 100%;display: none;" onLoad="stackBlurImage('bgimg', 'canvas', 20, 0.1);"></img>
 <canvas id="canvas" style="position: absolute;z-index: -1;top: 0px;width: 800px;height: 400px;"></canvas>
 <div class="ui-layout-center">
 	<ul id="messagelist" class="messagelist">

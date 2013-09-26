@@ -8,6 +8,8 @@
 	<script charset="utf-8" src="../resources/kindeditor-4.1.7/kindeditor.js"></script>
 	<script charset="utf-8" src="../resources/kindeditor-4.1.7/lang/zh_CN.js"></script>
 	<script charset="utf-8" src="../resources/kindeditor-4.1.7/plugins/code/prettify.js"></script>
+	<script charset="utf-8" src="../resources/script/system.js"></script>
+	
 </head>
 <body>
 <h1>
